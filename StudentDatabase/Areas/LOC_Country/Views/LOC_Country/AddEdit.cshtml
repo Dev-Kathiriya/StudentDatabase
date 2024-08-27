@@ -1,0 +1,260 @@
+﻿@using System.Reflection;
+@using Newtonsoft.Json
+@{
+    ViewData["Title"] = "AddEdit";
+}
+@model StudentDatabase.Areas.LOC_Country.Models.Tables_Model
+<div class="row justify-content-center">
+    <div class="card-body">
+        <h5 class="card-title">@Model.type</h5>
+
+    @{
+        int relationalDropDownCount = @Model.dropDownNamesList.Count, i = 0;
+    }
+        @* *@
+        <!-- Begin Region: Data already exist error message-->
+            @if (ViewBag.isNotExicuted == true)
+            {
+                <div class="alert alert-danger alert-dismissible fade show align-center w-100" role="alert">
+                    <h4 class="alert-heading">@Model.type already exists</h4>
+                    <p>a similar @Model.type already exist please change value and try again.</p>
+                    <hr>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+        <!-- End Region-->
+        <!-- Begin Region: Drop Down set-->
+        <div class="d-flex">
+            @foreach (String key in ViewBag.keys)
+            {
+                <div class="col-md-4">
+                <form method="post" id="@key" asp-action="AddEdit" asp-area="LOC_Country" asp-controller="LOC_Country">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="dropDown" class="form-select" onchange="document.getElementById('@key').submit();">
+                                <option value="-1" selected="@(-1 == (int)TempData[key])">Choose @key</option>
+                                @foreach (var item in (ViewData[key] as Tables_Model).data)
+                                {
+                                    dynamic dropDownData = Model.instanceVariableValue(variableName: i < relationalDropDownCount ? Model.dropDownNamesList[i] : Model.noRelationDropDownNamesList[i], data: item);
+                                    int id = Model.instanceVariableValue(key + "ID", data: item);
+                                    <option hidden="@(ViewBag.oldKey!=null && ViewBag.oldKey==-1 && i<relationalDropDownCount)" value="@id" selected="@(id == (int)TempData[key])">@dropDownData</option>
+                                }
+                            </select>
+                        </div>
+                        <input type="hidden" value="@key" name="key">
+                        @foreach (string tempKey in TempData.Keys)
+                        {
+                            <input type="hidden" value="@TempData[tempKey]" name="@tempKey">
+                        }
+                    </div>
+                </form>
+                </div>
+                ViewBag.oldKey = (int)TempData[key];
+                i++;
+            }
+        </div>
+        <!-- End Region-->
+        <!-- Begin Region: Form-->
+        <form class="row g-3" method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action="Adds">
+            @{
+                List<dynamic> lst = Model.instanceVariableValue(lst: Model.publicDataNames);
+            }
+            <!-- Begin Region: set input-->
+            @for (i = 0; i < Model.publicDataNames.Count; i++)
+            {
+                string type = Model.publicDataNames[i];
+                <div class="col-md-6">
+                    <label class="form-label">Enter @type</label>
+                    <input class="form-control" type="text" name="@type" value=@(lst[i]!=null?lst[i].ToString():"")>
+                </div>
+            }
+            @if (ViewBag.id != null)
+            {
+                <input type="hidden" name="id" value="@ViewBag.id">
+            }
+            <!-- End Region: set input-->
+            <!-- Begin Region: set input of DropDown-->
+            @foreach (string tempKey in TempData.Keys)
+            {
+                @if (tempKey != "errorMessage")
+                {
+                    <input type="hidden" value=@((int)TempData[tempKey]!=-1?TempData[tempKey]:null) name=@(tempKey+"ID")>
+                }
+            }
+            <!-- End Region: set input of DropDown-->
+            <!-- Begin Region: Error Message-->
+            @foreach (var modelStateEntry in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelStateEntry.Errors)
+                {
+                    <span class="text-danger ">@error.ErrorMessage</span>
+                }
+            }
+            <!-- End Region: Error Message-->
+            <button type="submit" class="btn btn-primary col-md-4  mx-auto">Submit</button>
+
+        </form>
+        <!-- End Region: Form-->
+
+    </div>  
+
+</div>
+@* @section Script{
+    <partial name="_ValidationScriptsPartial.cshtml">
+    } *@
+@{
+    #region JS Dropdown
+    @* @{
+                int length = Model.dropDownNamesList.Count;
+            }
+            @for (int i = 0; i < length; i++)
+            {
+                var dbName = @Model.dropDownNamesList[i].Substring(0, @Model.dropDownNamesList[i].Length - 4);
+                string tableID = dbName + "ID";
+                ViewBag.dropDown = ViewData[@Model.dropDownNamesList[i]];
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                    <select data-length="@length" data-index="@i" data-table-id="@tableID" class="custom-select mr-sm-2 form-control" onchange="updateDropdowns(this)" asp-for=@tableID name=@tableID id="dropDown-@i" asp-items="@(new SelectList((List<dynamic>)ViewBag.dropDown,tableID,@Model.dropDownNamesList[i]))">
+                    </select>
+                </div>
+            }
+            @for (int i = 0; i < Model.noRelationDropDownNamesList.Count; i++)
+            {
+                var dbName = @Model.noRelationDropDownNamesList[i].Substring(0, @Model.noRelationDropDownNamesList[i].Length - 4);
+                string tableID = dbName + "ID";
+                ViewBag.dropDown = ViewData[@Model.noRelationDropDownNamesList[i]];
+                <div class="col-auto my-1">
+                    <label class="mr-sm-2 sr-only" for="inlineFormCustomSelect">Preference</label>
+                    <select class="custom-select mr-sm-2 form-control" asp-for=@tableID name=@tableID asp-items="@(new SelectList((List<dynamic>)ViewBag.dropDown,tableID,@Model.dataModel.noRelationDropDownNamesList[i]))">
+                    </select>
+                </div>
+            } *@
+@* @{
+    var serializedDataArray = new List<string>();
+    for (int i = 0; i < Model.dropDownNamesList.Count; i++)
+    {
+        string name = Model.dropDownNamesList[i];
+        var dropDownData = ViewData[name];
+        var dropDownDataJson = JsonConvert.SerializeObject(dropDownData);
+        serializedDataArray.Add(dropDownDataJson);
+    }
+}
+<script>
+    var jsDropDownDataArray = @Html.Raw(Json.Serialize(serializedDataArray));
+    function updateDropdowns(selectElement) {
+        var id = selectElement.value, tableID = selectElement.getAttribute("data-table-id"), index = selectElement.getAttribute("data-index"), length = selectElement.getAttribute("data-length");
+        index
+        while (index++ < length) {
+            var updateDrop = document.getElementById("dropDown-" + index);
+            while (updateDrop.options.length > 0) {
+                updateDrop.remove(0);
+            }
+            for (var i = index; i < jsDropDownDataArray.length; i++) {
+                var data = JSON.parse(jsDropDownDataArray[i]);
+                for(var j=0;j<data.length;j++){
+                    option = data[j];
+                    console.log(option[tableID] == id);
+                    if (option[tableID] == id) {
+                   
+                        var newOption = document.createElement("option");
+                        newOption.value = option[option.dataNames[0]];
+                        newOption.textContent = option[option.publicDataNames[0]];
+                        updateDrop.append(newOption)
+                    }
+                    
+                }
+                
+            }
+
+        }
+    }
+</script> *@
+#endregion
+    #region errormessage
+     @*@foreach(var modelStateEntry in ViewData.ModelState.Values)
+    {
+        foreach (var error in modelStateEntry.Errors)
+        {
+            <li>@error.ErrorMessage</li>
+        }
+    }
+    *@
+    #endregion
+    #region form
+    @*  <form method="post" asp-area="LOC_Country" asp-controller="LOC_Country" asp-action=@($"Adds")>
+             @{List<dynamic> lst = Model.instanceVariableValue(lst: Model.publicDataNames);}
+            @for (i = 0; i < Model.publicDataNames.Count; i++)
+            {
+                string type = Model.publicDataNames[i];
+                <div>Enter @type</div>
+                <input type="text" name="@type" value=@(lst[i]!=null?lst[i].ToString():"")>
+                <br />
+                <span class="text-danger">
+                    @{
+                        var validationResult = ViewData.ModelState.TryGetValue(Model.publicDataNames[i], out var modelStateEntry);
+                    }
+                    @for (int j = 0; validationResult && modelStateEntry.Errors.Count > j;j++)
+                        {
+                            <text>@modelStateEntry.Errors[j].ErrorMessage</text>
+                        }
+                </span>
+            }
+            @if (ViewBag.id != null)
+            {
+                <input type="hidden" name="id" value="@ViewBag.id">
+            }
+           @foreach (string tempKey in TempData.Keys)
+            {
+                @if(tempKey!="errorMessage"){
+                <input type="hidden" value=@((int)TempData[tempKey]!=-1?TempData[tempKey]:null) name=@(tempKey+"ID")>
+                }
+            }
+            <input type="submit" value="submit"/>
+
+        </form> *@
+    #endregion
+    #region oldForm
+    @*<form method="post" id="@key" asp-action="AddEdit" asp-area="LOC_Country" asp-controller="LOC_Country">
+        <div class="col-md-5">
+            <select name="dropDown" class="form-select" onchange="document.getElementById('@key').submit();">
+                <option value=-1 selected="@(-1 == (int)TempData[key])">Choose @key</option>
+                @foreach (var item in (ViewData[key] as Tables_Model).data)
+                {
+                    dynamic dropDownData = Model.instanceVariableValue(variableName: i < relationalDropDownCount ? Model.dropDownNamesList[i] : Model.noRelationDropDownNamesList[i], data: item);
+                    int id = Model.instanceVariableValue(key + "ID", data: item);
+                    <option hidden="@(ViewBag.oldKey!=null && ViewBag.oldKey==-1 && i<relationalDropDownCount)" value="@id" selected="@(id == (int)TempData[key])">@dropDownData</option>
+                }
+            </select>
+
+        </div>
+          <div class="col-md-5">
+    <select name="dropDown" class="custom-select mr-sm-2 form-control" onchange="document.getElementById('@key').submit();">
+    <option value=-1 selected="@(-1 == (int)TempData[key])">Choose @key</option>
+    @foreach (var item in (ViewData[key] as Tables_Model).data)
+    {
+    dynamic dropDownData = Model.instanceVariableValue(variableName: i < relationalDropDownCount ? Model.dropDownNamesList[i]:Model.noRelationDropDownNamesList[i], data: item);
+    int id = Model.instanceVariableValue(key+"ID",data:item);
+    <option hidden="@(ViewBag.oldKey!=null && ViewBag.oldKey==-1 && i<relationalDropDownCount)" value="@id" selected="@(id == (int)TempData[key])">@dropDownData</option>
+    }
+    </select>
+    </div> 
+        <input type="hidden" value=@key name="key">
+        @foreach (string tempKey in TempData.Keys)
+        {
+            <input type="hidden" value=@TempData[tempKey] name=@tempKey>
+        }
+    </form>
+               <span class="text-danger">
+                @{
+                    var validationResult = ViewData.ModelState.TryGetValue($"{key}ID", out var modelStateEntry);
+                }
+                @if (validationResult && modelStateEntry.Errors.Count > 0)
+                {
+                    <text>@modelStateEntry.Errors[0].ErrorMessage</text>
+                }
+            </span> 
+    ViewBag.oldKey = (int)TempData[key];
+    i++;
+    *@
+    #endregion
+}

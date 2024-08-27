@@ -1,0 +1,165 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Uni\\Asp.Net\\StudentDatabase\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\views\\home\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\views\\home\\signup.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\areas\\loc_country\\views\\loc_country\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\areas\\loc_country\\views\\loc_country\\addedit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\areas\\loc_country\\controllers\\loc_countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\areas\\loc_country\\controllers\\loc_countrycontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\bal\\usersessoncv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\bal\\usersessoncv.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|d:\\uni\\asp.net\\studentdatabase\\studentdatabase\\areas\\loc_country\\views\\loc_country\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{FC181B95-9F4D-4213-B569-7333C2755465}|StudentDatabase\\StudentDatabase.csproj|solutionrelative:studentdatabase\\areas\\loc_country\\views\\loc_country\\table.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AddEdit.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\AddEdit.cshtml",
+              "RelativeDocumentMoniker": "StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\AddEdit.cshtml",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\AddEdit.cshtml",
+              "RelativeToolTip": "StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\AddEdit.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-24T03:29:22.239Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Program.cs",
+              "RelativeDocumentMoniker": "StudentDatabase\\Program.cs",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Program.cs",
+              "RelativeToolTip": "StudentDatabase\\Program.cs",
+              "ViewState": "AQIAAAcAAAAAAAAAAAAuwB4AAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:22.439Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "_Layout.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Shared\\_Layout.cshtml",
+              "RelativeDocumentMoniker": "StudentDatabase\\Views\\Shared\\_Layout.cshtml",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Shared\\_Layout.cshtml",
+              "RelativeToolTip": "StudentDatabase\\Views\\Shared\\_Layout.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAABEAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-24T03:29:23.412Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SignUp.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Home\\SignUp.cshtml",
+              "RelativeDocumentMoniker": "StudentDatabase\\Views\\Home\\SignUp.cshtml",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Home\\SignUp.cshtml",
+              "RelativeToolTip": "StudentDatabase\\Views\\Home\\SignUp.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-24T03:29:24.052Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "StudentDatabase\\Controllers\\HomeController.cs",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "StudentDatabase\\Controllers\\HomeController.cs",
+              "ViewState": "AQIAABoAAAAAAAAAAAAAABkAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:24.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Home\\Login.cshtml",
+              "RelativeDocumentMoniker": "StudentDatabase\\Views\\Home\\Login.cshtml",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Views\\Home\\Login.cshtml",
+              "RelativeToolTip": "StudentDatabase\\Views\\Home\\Login.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-24T03:29:24.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UserSessonCV.cs",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\BAL\\UserSessonCV.cs",
+              "RelativeDocumentMoniker": "StudentDatabase\\BAL\\UserSessonCV.cs",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\BAL\\UserSessonCV.cs",
+              "RelativeToolTip": "StudentDatabase\\BAL\\UserSessonCV.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:24.054Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LOC_CountryController.cs",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Controllers\\LOC_CountryController.cs",
+              "RelativeDocumentMoniker": "StudentDatabase\\Areas\\LOC_Country\\Controllers\\LOC_CountryController.cs",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Controllers\\LOC_CountryController.cs",
+              "RelativeToolTip": "StudentDatabase\\Areas\\LOC_Country\\Controllers\\LOC_CountryController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAABNAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-02-24T03:29:24.055Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Table.cshtml",
+              "DocumentMoniker": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\Table.cshtml",
+              "RelativeDocumentMoniker": "StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\Table.cshtml",
+              "ToolTip": "D:\\Uni\\Asp.Net\\StudentDatabase\\StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\Table.cshtml",
+              "RelativeToolTip": "StudentDatabase\\Areas\\LOC_Country\\Views\\LOC_Country\\Table.cshtml",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAATAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-02-24T03:29:24.056Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

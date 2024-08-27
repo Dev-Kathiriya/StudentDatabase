@@ -1,0 +1,151 @@
+﻿@{
+    ViewData["Title"] = "Table";
+}
+@using System.Data
+@using Newtonsoft.Json;
+@model Tables_Model
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<!-- Begin Region: Search-->
+<div class="header d-flex justify-content-between align-items-center">
+    <div class="search-bar">
+        <form class="search-form d-flex align-items-center" method="POST" action="#">
+            <input type="text" class="form-control input-group-sm input-small input-inline w-100" placeholder="Search" name="data" asp-action="Table" asp-route-procType=@Model.type asp-controller="LOC_Country" asp-area="LOC_Country">
+            <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+        </form>
+    </div>
+        <a type="button" class="btn btn-outline-primary m-4" asp-route-procTypes=@Model.type asp-area="LOC_Country" asp-action="AddEdit" asp-controller="LOC_Country">Add</a>
+    </div>
+</div>
+<!-- End Region: Search-->
+@{
+    int relationalDropDownCount = @Model.dropDownNamesList.Count, i = 0, skip = Model.dropDownNamesList.Count + Model.noRelationDropDownNamesList.Count + 1;
+}
+ <!-- Begin Region: Dropdown-->
+<div class="d-flex">
+@foreach (String key in ViewBag.keys)
+{
+        <div class="col-md-5">
+    <form method="post" id="@key" asp-action="Table" asp-area="LOC_Country" asp-controller="LOC_Country">
+                <div class="row m-2">
+                    <div class="col-md-6">
+            <select name="dropDown" class="form-select" onchange="document.getElementById('@key').submit();">
+                <option value=-1 selected="@(-1 == (int)TempData[key])">Choose @key</option>
+                @foreach (var item in (ViewData[key] as Tables_Model).data)
+                {
+                    dynamic dropDownData = Model.instanceVariableValue(variableName: i < relationalDropDownCount ? Model.dropDownNamesList[i] : Model.noRelationDropDownNamesList[i], data: item);
+                    int id = Model.instanceVariableValue(key + "ID", data: item);
+                    <option hidden="@(ViewBag.oldKey!=null && ViewBag.oldKey==-1 && i<relationalDropDownCount)" value="@id" selected="@(id == (int)TempData[key])">@dropDownData</option>
+                }
+            </select>
+        </div>
+        <input type="hidden" value=@key name="key">
+        @foreach (string tempKey in TempData.Keys)
+        {
+            <input type="hidden" value=@TempData[tempKey] name=@tempKey>
+        }
+        </div>
+    </form>
+    </div>
+    ViewBag.oldKey = (int)TempData[key];
+    i++;
+}
+    <div class="col-md-5 m-2">
+        <input type="submit" class="btn btn-primary" id="SelectAll" value="Select All" onclick="selectAll()" />
+    </div>
+    <div class="col-md-5 m-2">
+        <input type="button" class="btn btn-danger" value="Delete All selected" id="deleteButton" />
+    </div>
+    
+</div>
+<!-- End Region: Search-->
+<!-- Begin Region: Table-->
+<table class="table table-hover">
+        <thead>
+        <!-- Begin Region: Column names-->
+            <tr>
+                <th>Select</th>
+                @foreach (dynamic rows in Model.dataNames.Skip(skip))
+                {
+                    <th scope="col">@rows</th>
+                }
+                <th scope="col" colspan="2">Update</th>
+               
+            </tr>
+        <!-- End Region: Column names-->
+        </thead>
+        <tbody id="table">
+            @foreach (dynamic models in @Model.data)
+            {
+            var lst = @Model.instanceVariableValue(Model.dataNames,data: models);
+                <tr>
+                <td><input type="checkbox" id="checkbox" name="id" value=@lst[0] /></td>
+                @for (int index = skip; index < lst.Count; index++)
+                    {
+                    <td>@lst[index]</td>
+                    }
+                    <td>
+                    <form method="post" asp-action="AddEdit" asp-area="LOC_Country">
+                        <input type="hidden" name="id" value=@lst[0] />
+                        <input type="hidden" name="procTypes" value=@Model.type />
+                            <button type="submit" class="btn btn-primary">Edit</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form method="post" asp-action="LOC_Country_Delete" asp-area="LOC_Country" asp-controller="LOC_Country">
+                            <input type="hidden" name="classType" value=@Model.type />
+                        <input type="hidden" name="id" value="@lst[0]" />
+                            <input type="submit" class="btn btn-danger" value="Delete" />
+                        </form>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+</table>
+<!-- End Region: Table-->
+
+
+<script>
+
+
+    function selectAll() {
+
+        var selectAllCheckbox = document.getElementById('SelectAll');
+        var checkboxes = document.getElementsByName('id');
+        selectAllCheckbox.checked = !selectAllCheckbox.checked;
+
+        selectAllCheckbox.value = selectAllCheckbox.checked ? "Unselect All" : "Select All";
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = selectAllCheckbox.checked;
+        }
+    }
+    $(document).ready(function () {
+        $('#deleteButton').click(function () {
+            var selectedIds = [];
+
+            // Iterate through all checkboxes with id="checkbox" and add the selected ones to the array
+            $('input[id="checkbox"]:checked').each(function () {
+                selectedIds.push($(this).val());
+            });
+
+            // Make an AJAX request to the server
+            $.ajax({
+                type: 'POST',
+                url: '/Tables/LOC_Country/DeleteCheckBox',
+                data: { selectedIds: selectedIds },
+                traditional: true, // Allow sending arrays in traditional style
+                success: function (response) {
+                    // Handle the response if needed
+                    console.log(response);
+
+                    // Optionally redirect to another page
+                    window.location.href = '/LOC_Country/Table';
+                },
+                error: function (error) {
+                    // Handle errors if any
+                    console.error(error);
+                }
+            });
+        });
+    });
+</script>
